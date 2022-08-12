@@ -14,7 +14,6 @@ app.get('/notes', (_req, res) => {
   res.sendFile(path.join(__dirname, "../public/notes.html"));
 });
 
-
 app.get('/api/notes', (_req, res) => {
   util.promisify(fs.readFile)('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
@@ -23,7 +22,6 @@ app.get('/api/notes', (_req, res) => {
 app.get('*', (_req, res) =>
   res.sendFile(path.join(__dirname, "../public/index.html"))
 );
-
 
 app.post("/api/notes", (req, res) => {
   api.push(
